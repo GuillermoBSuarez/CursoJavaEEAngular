@@ -1,0 +1,22 @@
+<div>
+  <label>Nombre:</label>
+  <!--  PRIMERA VERSIÓN
+  <input type="text" [(ngModel)]="nombre"><br>
+  <label>Edad:</label>
+  <input type="number" [(ngModel)]="edad"><br>
+  <label>Departamento:</label>
+  <input type="text" [(ngModel)]="departamento"><br>
+  <input type="button" value="Grabar" (click)="grabar()">
+  -->
+  <input type="text" [(ngModel)]="persona.nombre"><br>
+  <label>Edad:</label>
+  <input type="number" [(ngModel)]="persona.edad"><br>
+  <label>Departamento:</label>
+  <input type="text" [(ngModel)]="persona.departamento"><br>
+  <input type="button" value="Grabar" (click)="grabar()">
+  <!-- Ojo, los eventos van entre paréntesis. -->
+  <div>
+    {{resultado}}
+
+  </div>
+</div>

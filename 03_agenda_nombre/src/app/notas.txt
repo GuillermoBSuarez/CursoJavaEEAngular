@@ -1,0 +1,4 @@
+Cargar lista de nombre según se escriben
+y borrarlos al seleccionarlos.
+
+No hay javabean.
