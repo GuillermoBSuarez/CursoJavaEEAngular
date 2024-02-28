@@ -1,0 +1,20 @@
+Adaptación a Angular del 88_pedidos_cliente_front_gateway.
+Necesita Eureka(79), Gateway(87), productos(84) y pedidos(85).
+
+1. Javabeans de Pedido y Producto, y en tsconfig.json cambiar el strict a false.
+   Y ojo, que la fecha, de momento, va como string. Tampoco hay que hacer cálculos con ella.
+
+2. Service para ambos: app > nuevo service > service/pedidos.
+   En el constructor del ts inyectamos 'private http:HttpClient'.
+   urlBase y añadidos, los sacamos de los html del 88, que aquí serán uno sólo.
+   Necesitamos los mismo métodos que vemos en aquellos html: cargar productos,
+   grabar pedidos y cargar pedidos.
+
+3. Component - Controller, uno sólo para ambos servicios.
+   Eliminamos los cuatro app.component creados por defecto y app > new component: components/paises
+   En el constructor del ts inyectamos ambos service.
+
+4. Vista. Ambos html en uno sólo: la lista de pedidos se ve al pulsar un botón.
+
+5. Modificamos el app.module.ts. Eliminamos las referencias al component que hemos borrado e incluimos
+   las del que hemos creado. En import añadimos FormsModule y HttpClientModule para que los inyecte.

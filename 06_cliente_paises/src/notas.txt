@@ -1,0 +1,23 @@
+Cliente html Angular que adapta el servicio del Ej. 92_cliente_paises_eureka_gateway,
+que trabajaba contra el servicio del Ej. 89_servicio_paises_eureka_gateway.
+Por tanto, allí hay que arrancar también el gateway (90_servidor_eureka_paises)
+
+1. Creamos el javabean.
+   app > nuevo archivo > model/Pais.ts
+   En tsconfig.json ponemos la variable strict a false para quitar el error en cada variable.
+
+2. Creamos el servicio
+   app > nuevo service > service/paises
+   En el constructor del ts inyectamos 'private http:HttpClient'.
+
+3. Eliminamos los cuatro app.component creados por defecto y creamos el componente.
+   app > nuevo component > componets.paises
+   En el ts, en el constructor, inyectamos el service. Necesitamos dos métodos:
+   el de cargar continentes y el de cargar los países de un continente.
+
+4. Creamos la vista html
+   Ojo a la opción vacía para poder elegir una opción que no cargue países y, en consecuencia,
+   la condición para que se vea o no la tabla dependiendo de si el continente seleccionado tiene países.
+
+5. Modificamos el app.module.ts. Eliminamos las referencias al component que hemos borrado e incluimos
+   las del que hemos creado. En import añadimos FormsModule y HttpClientModule para que los inyecte.

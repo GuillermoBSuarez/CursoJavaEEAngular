@@ -11,7 +11,7 @@ export class BuscadorService {
   constructor(private http:HttpClient) { }
 
   buscarResultados(tematica:string):Observable<Resultado[]> {
-    let url:string = "http://localhost:7000/buscador";
+    let url:string = "http://localhost:7000/buscador/buscar";
     return this.http.get<Resultado[]>(url + "?tematica=" + tematica); // llamada asíncrona
   }
 }
