@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Buscar libro por ISBN</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6" style="border: solid 1px">
+        <div class="form-group">
+
+          <input type="text" placeholder="ISBN" [(ngModel)]="isbn" class="form-control"/>
+          <br>
+          <button (click)="buscarLibro()">Guardar</button>
+          <label>Temática: {{libro.tematica}}</label>
+          <label>Título: {{libro.titulo}}</label>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

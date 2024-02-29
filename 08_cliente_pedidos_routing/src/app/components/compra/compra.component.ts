@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from '../../model/Pedido';
 import { PedidosService } from '../../service/pedidos.service';
 import { ProductoService } from '../../service/producto.service';
+import { Pedido } from '../../model/Pedido';
 import { Producto } from '../../model/Producto';
 
 @Component({
-  selector: 'app-pedidos',
-  templateUrl: './pedidos.component.html',
-  styleUrl: './pedidos.component.css'
+  selector: 'app-compra',
+  templateUrl: './compra.component.html',
+  styleUrl: './compra.component.css'
 })
-export class PedidosComponent implements OnInit {
-  productos:Producto[];
+export class CompraComponent implements OnInit{
   pedido:Pedido;
-  pedidos:Pedido[];
+  productos:Producto[];
 
   constructor(private servicePedidos:PedidosService,
-              private serviceProductos:ProductoService){}
+    private serviceProductos:ProductoService){}
 
   ngOnInit(): void {
-    this.pedido=new Pedido();
-    this.cargarProductos();
-  }
+      this.pedido=new Pedido();
+      this.cargarProductos();
+    }
 
   cargarProductos():void{
     this.serviceProductos
@@ -37,9 +36,6 @@ export class PedidosComponent implements OnInit {
         Y ACTUALIZACIÓN DE STOCK en el servicio, con lo que no lo actualiza. */
   }
 
-  cargarPedidos():void{
-    this.servicePedidos
-        .cargarPedidos()
-        .subscribe( data => this.pedidos=data );
-  }
+
+
 }
