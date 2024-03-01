@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Nuevo libro</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6" style="border: solid 1px">
+        <div class="form-group">
+
+          <select (change)="cargarTematicas()" [(ngModel)]="libro.tematica">
+            <option></option>
+            <option *ngFor="let t of tematicas" value="{{t}}">
+              {{t}}
+            </option>
+          </select>
+          <br>
+          <input type="text" placeholder="Título" [(ngModel)]="libro.titulo" class="form-control"/>
+          <br>
+          <input type="text" placeholder="ISBN" [(ngModel)]="libro.isbn" class="form-control"/>
+          <br>
+          <button (click)="alta()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
