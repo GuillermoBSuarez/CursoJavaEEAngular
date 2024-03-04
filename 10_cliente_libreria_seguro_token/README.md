@@ -2,6 +2,12 @@ Modificación del 09_cliente_libreria para trabajar contra el servicio del 77_BD
 
 Éste pide autenticación por token, así que necesitamos ejecutar también KeyCloak. En CMD, en la ruta de keycloak/Bin, kc start-dev como admin.
 
+En service llamamos al KeyCloak para que nos dé un token, lo hacemos en el constructor. Pero KeyCloak devuelve un JSON, no un string, así que tenemos que extraer del JSON la única propiedad que nos interesa, que es la primera. Igual que en Java (Ej. 78), creamos un model o javabean con esa única propiedad. La llamada http devuelve, como todas un Observable, por lo que hay que suscribirse a él. Como vamos a guardarla en un objeto de tipo Token, que hemos definido con una única propiedad, en la propia llamada de subscribe asignamos esa propiedad a la variable string token.
+
+Después, en los métodos hay que añadir en headers la clave/valor del tipo de autorización: Authorization = Bearer + token
+
+Además, en el método de alta de libros hay que cambiar la clave/valor a Content-Type = application/json.
+
 
 
 # 09ClienteLibreria
